@@ -9,24 +9,19 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name = "access_token_blacklist")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class AccessTokenBlacklist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user id", nullable = false)
-    private User user;
-
     @Column(name = "token", nullable = false, length = 1024)
     private String token;
 
-    @Column(name = "expiration datetime", nullable = false)
+    @Column(name = "expiration_datetime", nullable = false)
     private LocalDateTime expirationDateTime;
 }

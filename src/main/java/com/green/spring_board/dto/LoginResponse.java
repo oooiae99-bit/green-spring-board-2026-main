@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoginResponse {
-    private String accessToken; // 엑세스 토큰
+    private String accessToken; // 액세스 토큰
     private String refreshToken; // 리프레시 토큰
 }

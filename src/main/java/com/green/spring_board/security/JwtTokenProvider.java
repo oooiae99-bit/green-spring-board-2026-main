@@ -62,11 +62,11 @@ public class JwtTokenProvider {
     public boolean validateAccessToken(String token) {
         try {
             String tokenType = Jwts.parserBuilder()
-                    .setSigningKey(key)
-                    .build()
-                    .parseClaimsJwt(token)
-                    .getBody()
-                    .get("tokenType", String.class);
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("tokenType", String.class);
 
             return tokenType.equals("ACCESS");
         } catch (JwtException | IllegalArgumentException e) {
@@ -80,7 +80,7 @@ public class JwtTokenProvider {
             String tokenType = Jwts.parserBuilder()
                     .setSigningKey(key)
                     .build()
-                    .parseClaimsJwt(token)
+                    .parseClaimsJws(token)
                     .getBody()
                     .get("tokenType", String.class);
 
@@ -95,7 +95,7 @@ public class JwtTokenProvider {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
     }
@@ -105,7 +105,7 @@ public class JwtTokenProvider {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody()
                 .getExpiration();
     }

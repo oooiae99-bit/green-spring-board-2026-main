@@ -26,7 +26,7 @@ public class BoardController {
 
     ){
         return ResponseEntity.ok(
-                ApiResponse.ok(boardService.getAllBoards(page, size, order))
+            ApiResponse.ok(boardService.getAllBoards(page, size, order))
         );
     }
 
@@ -55,9 +55,9 @@ public class BoardController {
     public ResponseEntity<ApiResponse<Void>> createBoard(
             @Valid @RequestBody BoardCreateRequest boardCreateRequest
     ) {
-        int newBoardId = boardService.createBoard(boardCreateRequest);
-        URI location = URI.create("/api/board/" + newBoardId);
-        return ResponseEntity.created(location).body(ApiResponse.ok());
+            int newBoardId = boardService.createBoard(boardCreateRequest);
+            URI location = URI.create("/api/board/" + newBoardId);
+            return ResponseEntity.created(location).body(ApiResponse.ok());
     }
 
     // 수정

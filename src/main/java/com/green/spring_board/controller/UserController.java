@@ -38,7 +38,7 @@ public class UserController {
 
     @PostMapping("/logout")
     public ResponseEntity<ApiResponse<Void>> logout(
-            @RequestHeader("Authorization") String authorization
+        @RequestHeader("Authorization") String authorization
     ){
         String accessToken = authorization.substring(7);
         userService.logout(accessToken);
